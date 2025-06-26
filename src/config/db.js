@@ -7,8 +7,8 @@ const pool = new Pool({
   user: config.user,
   password: config.password,
   database: config.name,
-  ssl: false,
-  max: 20, // max concurrent clients
+  ssl: { rejectUnauthorized: false }, // Required for Supabase
+  max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
 });
