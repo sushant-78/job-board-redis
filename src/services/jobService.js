@@ -1,5 +1,6 @@
 const jobModel = require("../models/jobModel");
 const getOrUpdateRedisData = require("../utils/getOrUpdateRedisData");
+const redisClient = require("../config/redis");
 
 const createJob = async (data) => {
   const job = await jobModel.createJob(data);
