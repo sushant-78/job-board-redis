@@ -11,4 +11,5 @@ module.exports = {
   password: process.env.DB_PASSWORD,
   redisUrl: process.env.REDIS_URL,
   jwtSecret: process.env.JWT_SECRET,
+  databaseUrl: process.env.DATABASE_URL,
 };

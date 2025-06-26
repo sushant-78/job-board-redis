@@ -1,16 +1,21 @@
 const { Pool } = require("pg");
 const config = require("./env");
 
+// const pool = new Pool({
+//   host: config.host,
+//   port: config.port,
+//   user: config.user,
+//   password: config.password,
+//   database: config.name,
+//   ssl: { rejectUnauthorized: false }, // Required for Supabase
+//   max: 20,
+//   idleTimeoutMillis: 30000,
+//   connectionTimeoutMillis: 2000,
+// });
+
 const pool = new Pool({
-  host: config.host,
-  port: config.port,
-  user: config.user,
-  password: config.password,
-  database: config.name,
-  ssl: { rejectUnauthorized: false }, // Required for Supabase
-  max: 20,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
+  connectionString: config.databaseUrl, // this must be in .env
+  ssl: { rejectUnauthorized: false },
 });
 
 pool.on("connect", () => {
